@@ -1,0 +1,49 @@
+Mapas ----> Key - Value  //Tambien se llama arreglo asociativo
+Set   ----> Key
+En el set solo se pregunta si esta la llave o no
+
+----------------
+Estructuras que si acepta duplicados
+
+multimap
+multiset
+
+----------------
+
+used_values.insert(78)
+
+
+----------------
+
+.c_str()    ---> Crea una cadena de c++ a una de C
+
+tuplas: conjunto ordernado
+tupla de 2: <string, int>
+               |      |
+           .first   .second
+              |         |
+        get<0>(par)    get<1>(par)
+
+----------------
+
+Un arbol es una estructura de datos jerarquica
+Cada nodo tiene un padre y puede tener 0,1 o mas hijos
+Nodos que no tienen hijos son hojas
+
+La altura de un árbol 
+Un árbol tiene niveles y se empieza desde 0
+
+La altura es el numero de niveles incluyendo el 0
+
+Un arbol de grado 2 es el binario, donde sus padres tiene maximo dos hijos 
+
+Existe el arbol de expresiones
+
+--------------------------------------------------
+
+Árbol binario de búsqueda 
+
+un árbol binario de busqueda
+
+-El valor del hijo izquierdo es menor que el padre
+-El valor del hijo derecho es mayor que el padre
