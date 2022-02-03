@@ -1,0 +1,1 @@
+		print(source.row, source.col, source.dist)

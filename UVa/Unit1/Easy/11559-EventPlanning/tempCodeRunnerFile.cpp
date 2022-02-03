@@ -1,0 +1,1 @@
+if (auxPrecio * datos[0] <= datos[1]) {

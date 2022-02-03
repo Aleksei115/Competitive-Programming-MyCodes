@@ -29,6 +29,7 @@ void solution(int n){
     if(b == false)printf("There are no solutions for %d.\n",n);
     
 }
+// Steve Kleiman
 
 int main(){
     if(getenv("CP_IO"))
