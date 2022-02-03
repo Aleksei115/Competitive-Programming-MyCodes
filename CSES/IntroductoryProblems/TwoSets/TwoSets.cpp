@@ -21,77 +21,65 @@ int main() {
 	if (getenv("CP_IO"))
 		setIO();
 
-	int n, itCan = 0, aux = 0, len;
+	int aux = 0, res = 1;
+	long long itCan = 0, n;
 	vector<int> v1, v2, v0;
-	scanf("%d", &n);
+	scanf("%ld", &n);
 
-	itCan = (n * (n + 1)) / 2;
+	itCan = (long long)(n * (n + 1)) / 2;
 
 	if (itCan % 2 == 1) {
 		cout << "NO";
 		return 0;
 	}
 	itCan /= 2;
-	for (int i = 1; i <= n; i++)
-		v0.push_back(i);
+	aux = n - 1;
 
-	// for (auto x : v0)
-	// 	cout << x << " ";
-
-	while (true) {
-
-		aux += v0[0];
-		cout << aux << " " << itCan << endl;
-		if (aux > itCan) {
-			aux -= v0[0];
-			if (aux == itCan)
-				break;
+	if (n % 2 == 0) {
+		for (int i = 1; i <= n / 2; i++) {
+			if (res % 2 != 0) {
+				v1.push_back(i);
+				v1.push_back(i + aux);
+			}
+			else {
+				v2.push_back(i);
+				v2.push_back(i + aux);
+			}
+			res++;
+			aux -= 2;
 		}
 
-		v1.push_back(v0[0]);
-		v0.erase(v0.begin());
+	}
+	else {
+		aux--;
+		for (int i = 1; i <= n / 2; i++) {
+			if (res % 2 != 0) {
+				v1.push_back(i);
+				v1.push_back(i + aux);
 
-		len = v0.size();
-		aux += v0[len - 1];
-
-		if (aux > itCan) {
-			aux -= v0[len - 1];
-			if (aux == itCan)
-				break;
+			}
+			else {
+				v2.push_back(i);
+				v2.push_back(i + aux);
+			}
+			res++;
+			aux -= 2;
 		}
-
-		v1.push_back(v0[len - 1]);
-		v0.pop_back();
+		if (res % 2 == 0)
+			v2.push_back(n);
+		else
+			v1.push_back(n);
 
 	}
 
 
-	// for (int i = 1; i < n; i++) {
-	// 	ant = i;
-	// 	if (aux1 < itCan / 2) {
-	// 		aux1 += i;
-	// 		cout << aux1 << " ";
-	// 		if (aux1 < itCan / 2)
-	// 			v1.push_back(i);
-	// 		else {
-	// 			aux2 = i;
-	// 			continue;
-	// 		}
 
-	// 	}
-	// 	else if (aux2 || aux1 >= itCan / 2)
-	// 		v2.push_back(i);
-
-	// 	aux2 = 0;
-
-	// }
-	// cout << endl;
+	cout << "YES" << endl << v1.size() << endl;
 	for (auto x : v1)
 		cout << x << " ";
-	// cout << endl;
-	// for (auto x : v2)
-	// 	cout << x << " ";
-
+	cout << endl << v2.size() << endl;
+	for (auto x : v2)
+		cout << x << " ";
 
 	return 0;
 }
